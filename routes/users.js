@@ -6,5 +6,6 @@ router.post("/insert", PacientesController.insert);
 router.get("/:username", PacientesController.getOne);
 router.get("/", PacientesController.getAll);
 router.put("/:username", PacientesController.update);
+router.delete("/:username", PacientesController.deleteOne);
 
 module.exports = router;

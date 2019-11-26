@@ -118,9 +118,23 @@ const update = (req, res, next) => {
     });
 };
 
+
+const deleteOne = (req, res, next) => {
+    User.findOneAndDelete({ numCita: req.params.numCita })
+      .then(data => {
+        if (data) res.status(200).json(data);
+        else res.status(404).send();
+      })
+      .catch(err => {
+        next(err);
+      });
+  };
+  
 module.exports = {
   insert, // cliente
   getOne, //
   getAll, 
-  update //Update es si el doctor lo aprueba o rechaza, solo modificar el boolean
+  update, //Update es si el doctor lo aprueba o rechaza, solo modificar el boolean,
+  deleteOne
+
 };

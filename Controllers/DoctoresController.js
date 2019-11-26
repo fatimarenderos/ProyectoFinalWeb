@@ -112,9 +112,23 @@ const update = (req, res, next) => {
     });
 };
 
+
+const deleteOne = (req, res, next) => {
+  User.findOneAndDelete({ usernameDoc: req.params.usernameDoc })
+    .then(data => {
+      if (data) res.status(200).json(data);
+      else res.status(404).send();
+    })
+    .catch(err => {
+      next(err);
+    });
+};
+
+
 module.exports = {
   insert, //registrase
   getOne, //ingresar
   getAll, 
-  update
+  update,
+  deleteOne
 };

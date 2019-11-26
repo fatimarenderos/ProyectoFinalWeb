@@ -18,7 +18,7 @@ var CitaSchema = Schema(
     //En este caso  se desplegara una barra de opciones para que 
     //estos los elijan por nombre y apellido
 
-    doctorFulName: {
+    doctorFullname: {
       type: String,
       required: true
     },
